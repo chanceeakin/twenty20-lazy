@@ -1,77 +1,60 @@
 import tw from "twin.macro"
 import React from "react"
-import SEO from "../components/seo"
+import { Link } from "gatsby"
+import { useTransition, animated } from "react-spring"
 
-import github from "../images/github.svg"
+import Layout from "../components/Layout"
 
-const logos = [
-  {
-    name: "gatsby",
-    logo: require("../images/gatsby.svg"),
-  },
-  {
-    name: "tailwind",
-    logo: require("../images/tailwind.svg"),
-  },
-  {
-    name: "emotion",
-    logo: require("../images/emotion.png"),
-  },
-]
-
-const Wrapper = tw.div`
-  flex items-center justify-center flex-col h-screen
-`
-
-const Main = tw.div`
-  p-6 bg-gray-100 rounded-lg shadow-2xl
+const Container = tw.div`
+  w-screen h-screen flex flex-col justify-center items-center
 `
 
 const Heading = tw.h1`
-  text-2xl text-gray-500 uppercase
+  text-6xl text-white 
 `
 
-const Text = tw.p`
-  text-xl text-gray-700
+const Listener = tw.div`
+  w-56 h-5 flex justify-center 
 `
 
-const Logos = tw.div`
-  flex items-center justify-around mb-6 px-16
+const Text = tw(animated.p)`
+  text-xl text-white hover:cursor-pointer
 `
 
-const Icon = tw.img`
-  h-10
-`
+export default () => {
+  const [toggle, set] = React.useState(false)
+  const transitions = useTransition(toggle, null, {
+    from: { position: "absolute", opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  })
 
-const Footer = tw.footer`
-  mt-6 text-center
-`
+  const handleEnter = React.useCallback(() => {
+    set(true)
+  }, [])
 
-const SmallIcon = tw.img`
-  inline-block h-6
-`
+  const handleExit = React.useCallback(() => {
+    set(false)
+  }, [])
 
-export default () => (
-  <Wrapper>
-    <SEO title="Home" />
-    <Main>
-      <Logos>
-        {logos &&
-          logos.map(({ name, logo }, index) => (
-            <Icon src={logo} alt={`${name} Logo`} key={index} />
-          ))}
-      </Logos>
-      <Heading>Hello, world!</Heading>
-      <Text>Welcome to the Gatsby Tailwind CSS + Emotion Starter.</Text>
-      <Footer>
-        <a
-          href="https://github.com/pauloelias/gatsby-tailwind-emotion-starter"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <SmallIcon src={github} alt="Github Icon" />
-        </a>
-      </Footer>
-    </Main>
-  </Wrapper>
-)
+  return (
+    <Layout title="Home">
+      <Container>
+        <Heading>Chance Eakin</Heading>
+        <Listener onMouseEnter={handleEnter} onMouseLeave={handleExit}>
+          {transitions.map(({ item, key, props }) =>
+            item ? (
+              <Text key={key} style={props}>
+                <Link to="/about/">About Me.</Link>
+              </Text>
+            ) : (
+              <Text key={key} style={props}>
+                <Link to="/about/">Software Engineer.</Link>
+              </Text>
+            )
+          )}
+        </Listener>
+      </Container>
+    </Layout>
+  )
+}

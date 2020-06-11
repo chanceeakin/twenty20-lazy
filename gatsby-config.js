@@ -8,5 +8,6 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-transition-link`,
   ],
 }

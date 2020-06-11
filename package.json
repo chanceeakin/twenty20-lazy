@@ -18,11 +18,14 @@
     "gatsby-plugin-emotion": "^4.3.3",
     "gatsby-plugin-postcss": "^2.3.3",
     "gatsby-plugin-react-helmet": "^3.3.3",
+    "gatsby-plugin-transition-link": "1.18.0",
     "postcss-import": "^12.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "react-particles-js": "3.2.1",
+    "react-spring": "8.0.27"
   },
   "devDependencies": {
     "babel-preset-gatsby": "^0.2.26",
