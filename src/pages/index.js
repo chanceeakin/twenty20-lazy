@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { useTransition, animated } from "react-spring"
 
 import Layout from "../components/Layout"
+import { PAGES } from "../constants"
 
 const Container = tw.div`
   w-screen h-screen flex flex-col justify-center items-center
@@ -38,7 +39,7 @@ export default () => {
   }, [])
 
   return (
-    <Layout title="Home">
+    <Layout title={PAGES.HOME}>
       <Container>
         <Heading>Chance Eakin</Heading>
         <Listener onMouseEnter={handleEnter} onMouseLeave={handleExit}>

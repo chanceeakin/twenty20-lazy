@@ -58,7 +58,7 @@ const TransitionWrapper = React.memo(({ children }) => {
                         <animated.div style={o}>
                           <TWParticles
                             params={{
-                              fps_limit: 28,
+                              fps_limit: 30,
                               particles: {
                                 number: {
                                   value: 300,

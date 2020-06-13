@@ -1,22 +1,39 @@
 import tw from "twin.macro"
 import styled from "@emotion/styled"
 import React from "react"
+import GithubCorner from "react-github-corner"
 
-import TransitionWrapper from "../components/TransitionWrapper"
+import { PAGES, COLORS } from "../constants"
+import TransitionWrapper from "./TransitionWrapper"
 
 import SEO from "../components/seo"
 
 const Wrapper = styled.div`
-  ${({ title }) => title === "About" && tw`bg-teal-900`}
-  ${({ title }) => title === "Home" && tw`bg-gray-900`}
+  ${({ title }) => title === PAGES.ABOUT && tw`bg-teal-900`}
+  ${({ title }) => title === PAGES.HOME && tw`bg-gray-900`}
+  ${({ title }) => title === PAGES.LINKS && tw`bg-blue-900`}
   ${tw`relative`}
 `
 
-export default ({ title, children }) => (
-  <>
-    <SEO title={title} />
-    <Wrapper title={title}>
-      <TransitionWrapper>{children}</TransitionWrapper>
-    </Wrapper>
-  </>
-)
+export default ({ title, children }) => {
+  const [color, setColor] = React.useState(COLORS[title])
+
+  React.useEffect(() => {
+    setColor(COLORS[title])
+  }, [title])
+
+  return (
+    <>
+      <SEO title={title} />
+      <GithubCorner
+        bannerColor={"#fff"}
+        octoColor={color}
+        svgStyle={{ zIndex: 3 }}
+        href="https://github.com/chanceeakin"
+      />
+      <Wrapper title={title}>
+        <TransitionWrapper>{children}</TransitionWrapper>
+      </Wrapper>
+    </>
+  )
+}
