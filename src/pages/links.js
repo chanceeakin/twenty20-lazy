@@ -12,8 +12,8 @@ const Heading = tw.h1`
   text-6xl text-white 
 `
 
-export default () => (
-  <Layout title={PAGES.LINKS}>
+export default ({ location }) => (
+  <Layout title={PAGES.LINKS} location={location}>
     <Container>
       <Heading>Links</Heading>
     </Container>

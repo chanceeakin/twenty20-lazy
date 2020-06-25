@@ -9,3 +9,9 @@ export const COLORS = {
   [PAGES.ABOUT]: "#234e52",
   [PAGES.LINKS]: "#2A4365",
 }
+
+export const LINKS = {
+  HOME: "/",
+  ABOUT: "/about/",
+  LINKS: "/links/",
+}

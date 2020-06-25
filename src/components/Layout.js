@@ -7,6 +7,7 @@ import { PAGES, COLORS } from "../constants"
 import TransitionWrapper from "./TransitionWrapper"
 
 import SEO from "../components/seo"
+import Drawer from "./drawer"
 
 const Wrapper = styled.div`
   ${({ title }) => title === PAGES.ABOUT && tw`bg-teal-900`}
@@ -15,7 +16,7 @@ const Wrapper = styled.div`
   ${tw`relative`}
 `
 
-export default ({ title, children }) => {
+export default ({ title, children, location }) => {
   const [color, setColor] = React.useState(COLORS[title])
 
   React.useEffect(() => {
@@ -31,6 +32,7 @@ export default ({ title, children }) => {
         svgStyle={{ zIndex: 3 }}
         href="https://github.com/chanceeakin"
       />
+      <Drawer />
       <Wrapper title={title}>
         <TransitionWrapper>{children}</TransitionWrapper>
       </Wrapper>

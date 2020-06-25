@@ -27,8 +27,8 @@ const Body = tw.p`
   text-xl text-white z-10 mb-2
 `
 
-export default () => (
-  <Layout title={PAGES.ABOUT}>
+export default ({ location }) => (
+  <Layout title={PAGES.ABOUT} location={location}>
     <Container>
       <Heading>About</Heading>
       <TextContainer>
@@ -49,7 +49,7 @@ export default () => (
           opportunities, we can build a stronger future for ourselves and those
           who come afterward.
         </Body>
-        <Body>Day job? Senior Engineer at Red Ventures.</Body>
+        <Body>Day job? Software Engineer at Red Ventures.</Body>
       </TextContainer>
     </Container>
   </Layout>

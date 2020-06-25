@@ -22,7 +22,7 @@ const Text = tw(animated.p)`
   text-xl text-white hover:cursor-pointer
 `
 
-export default () => {
+export default ({ location }) => {
   const [toggle, set] = React.useState(false)
   const transitions = useTransition(toggle, null, {
     from: { position: "absolute", opacity: 0 },
@@ -39,7 +39,7 @@ export default () => {
   }, [])
 
   return (
-    <Layout title={PAGES.HOME}>
+    <Layout title={PAGES.HOME} location={location}>
       <Container>
         <Heading>Chance Eakin</Heading>
         <Listener onMouseEnter={handleEnter} onMouseLeave={handleExit}>
