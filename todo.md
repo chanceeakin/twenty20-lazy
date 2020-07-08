@@ -1,0 +1,2 @@
+- add google analytics tag
+- redirect to URL
