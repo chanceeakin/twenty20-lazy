@@ -4,6 +4,7 @@ import React from "react"
 
 import Layout from "../components/Layout"
 import { PAGES } from "../constants"
+import Avatar from "../images/avatar.jpg"
 
 const Container = tw.div`
   w-screen h-screen flex flex-col justify-center items-center
@@ -14,13 +15,17 @@ const Heading = tw.h1`
 `
 
 const TextContainer = styled.div`
-  ${tw`p-4 h-48 max-h-full overflow-y-auto max-w-lg md:p-0`}
+  ${tw`p-4 h-48 lg:h-64 max-h-full overflow-y-auto max-w-lg md:p-0 flex flex-col`}
   scrollbar-width: none;
   -ms-overflow-style: none;
   ::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
   }
+`
+
+const AvatarImg = tw.img`
+rounded-full w-32 xl:w-48 self-center m-4
 `
 
 const Body = tw.p`
@@ -50,6 +55,7 @@ export default ({ location }) => (
           who come afterward.
         </Body>
         <Body>Day job? Software Engineer at Red Ventures.</Body>
+        <AvatarImg src={Avatar} />
       </TextContainer>
     </Container>
   </Layout>

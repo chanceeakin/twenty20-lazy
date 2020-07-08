@@ -16,6 +16,10 @@ const Wrapper = styled.div`
   ${tw`relative`}
 `
 
+const CornerContainer = styled.div`
+  ${tw`hidden lg:inline`}
+`
+
 export default ({ title, children, location }) => {
   const [color, setColor] = React.useState(COLORS[title])
 
@@ -26,12 +30,14 @@ export default ({ title, children, location }) => {
   return (
     <>
       <SEO title={title} />
-      <GithubCorner
-        bannerColor={"#fff"}
-        octoColor={color}
-        svgStyle={{ zIndex: 3 }}
-        href="https://github.com/chanceeakin"
-      />
+      <CornerContainer>
+        <GithubCorner
+          bannerColor={"#fff"}
+          octoColor={color}
+          svgStyle={{ zIndex: 3 }}
+          href="https://github.com/chanceeakin"
+        />
+      </CornerContainer>
       <Drawer />
       <Wrapper title={title}>
         <TransitionWrapper>{children}</TransitionWrapper>

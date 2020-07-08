@@ -25,6 +25,7 @@
     "react-dom": "^16.13.1",
     "react-github-corner": "2.3.0",
     "react-helmet": "^6.0.0",
+    "react-icons": "3.10.0",
     "react-particles-js": "3.2.1",
     "react-spring": "8.0.27"
   },

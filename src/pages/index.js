@@ -11,7 +11,7 @@ const Container = tw.div`
 `
 
 const Heading = tw.h1`
-  text-6xl text-white 
+  text-6xl text-white text-center
 `
 
 const Listener = tw.div`

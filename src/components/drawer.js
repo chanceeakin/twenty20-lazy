@@ -1,6 +1,8 @@
 import React from "react"
 import tw from "twin.macro"
 import styled from "@emotion/styled"
+import { useTransition, animated } from "react-spring"
+import { MdMenu, MdClose } from "react-icons/md"
 import { Link } from "gatsby"
 import { PAGES, LINKS } from "../constants"
 
@@ -13,39 +15,45 @@ const Container = styled.div`
 `
 
 const Button = styled.button`
-  ${tw`rounded px-10 py-2`}
-  border: 1px solid white;
+  ${tw`w-1 flex justify-center lg:justify-start lg:w-full pb-4`}
   background: transparent;
   cursor: pointer;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  border: none;
+  :focus {
+    outline: none;
+  }
 `
 
-const Title = styled.span`
-  ${tw`flex text-white`}
+const MenuIcon = styled(MdMenu)`
+  ${tw`text-white hover:text-gray-400`}
+`
+
+const CloseIcon = styled(MdClose)`
+  ${tw`text-white hover:text-gray-400`}
 `
 
 const Content = styled.div`
   ${tw`text-white rounded`}
   background: transparent;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
-  border-bottom: ${(props) =>
-    console.log(props) || (props.isActive && `1px solid white;`)}
   height: 0;
   overflow: hidden;
   transition: height 0.2s ease;
 `
 
 const StyledLink = styled(Link)`
-  ${tw`block px-4 py-2`}
+  ${tw`block px-4 py-2 hover:text-gray-400 active:text-gray-600`}
 `
 
 export default function Drawer() {
   const [isActive, setActive] = React.useState(false)
   const [contentHeight, setHeight] = React.useState(0)
   const contentRef = React.useRef()
+
+  const transitions = useTransition(isActive, null, {
+    from: { position: "absolute", opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  })
 
   const handleClick = React.useCallback(() => {
     // there's a bug here. something to deo with async/ sync state and content height.
@@ -59,7 +67,17 @@ export default function Drawer() {
   return (
     <Container isActive={isActive}>
       <Button onClick={handleClick}>
-        <Title>Menu</Title>
+        {transitions.map(({ item, key, props }) =>
+          item ? (
+            <animated.div key={key} style={props}>
+              <CloseIcon />
+            </animated.div>
+          ) : (
+            <animated.div key={key} style={props}>
+              <MenuIcon />
+            </animated.div>
+          )
+        )}
       </Button>
       <Content
         ref={contentRef}
