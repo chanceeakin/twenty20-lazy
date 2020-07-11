@@ -9,5 +9,13 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-86915404-2",
+        // Puts tracking script in the head instead of the body
+        head: true,
+      },
+    },
   ],
 }
