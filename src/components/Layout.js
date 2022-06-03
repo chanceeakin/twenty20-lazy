@@ -10,9 +10,9 @@ import SEO from "../components/seo"
 import Drawer from "./drawer"
 
 const Wrapper = styled.div`
-  ${({ title }) => title === PAGES.ABOUT && tw`bg-teal-900`}
-  ${({ title }) => title === PAGES.HOME && tw`bg-gray-900`}
-  ${({ title }) => title === PAGES.LINKS && tw`bg-blue-900`}
+  ${({ title }) => title === PAGES.ABOUT && tw`bg-about`}
+  ${({ title }) => title === PAGES.HOME && tw`bg-home`}
+  ${({ title }) => title === PAGES.LINKS && tw`bg-links`}
   ${tw`relative`}
 `
 

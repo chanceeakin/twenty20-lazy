@@ -5,9 +5,9 @@ export const PAGES = {
 }
 
 export const COLORS = {
-  [PAGES.HOME]: "#1a202c",
-  [PAGES.ABOUT]: "#234e52",
-  [PAGES.LINKS]: "#2A4365",
+  [PAGES.HOME]: "#283618",
+  [PAGES.ABOUT]: "#AA6122",
+  [PAGES.LINKS]: "#606C38",
 }
 
 export const LINKS = {

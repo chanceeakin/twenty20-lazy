@@ -15,7 +15,7 @@ const Heading = tw.h1`
 `
 
 const TextContainer = styled.div`
-  ${tw`p-4 h-48 lg:h-64 max-h-full overflow-y-auto max-w-lg md:p-0 flex flex-col`}
+  ${tw`p-4 h-48 lg:h-64 max-h-full overflow-y-auto max-w-xl md:p-0 flex flex-col`}
   scrollbar-width: none;
   -ms-overflow-style: none;
   ::-webkit-scrollbar {
@@ -29,7 +29,7 @@ rounded-full w-32 xl:w-48 self-center m-4
 `
 
 const Body = tw.p`
-  text-xl text-white z-10 mb-2
+  text-xl text-white z-10 mb-4
 `
 
 export default ({ location }) => (
@@ -39,23 +39,29 @@ export default ({ location }) => (
       <TextContainer>
         <Body>
           Over the past several years, I've built a reputation for delivering
-          quality products and simple code. I spend most of my time writing
-          client side code, but I've also engineered IoT, AI/ML, and computer
-          vision projects.
+          quality cloud products through simple code solutions. In addition full
+          stack web development, I've engineered IoT, AI/ML, and computer vision
+          projects. Likewise, I've mentored engineeers and former bootcampers
+          (fellow bootcamp grad here!) through career transitions, technical
+          growth, and professionl development.
         </Body>
         <Body>
           Code isn't all that I do, though. Living in Austin, Texas, I'm also an
           avid volunteer and community member, empowering and educating the next
-          generation through technology and civics.
+          generation through technology, civics, and the fine arts.
         </Body>
         <Body>
-          My passions are STEAM education and affordable housing in the greater
-          central Texas area. Through education and the fostering of
-          opportunities, we can build a stronger future for ourselves and those
-          who come afterward.
+          My passions are STEAM education, initiatives in technology and
+          software engineering, and water conservation efforts. Through
+          education and the fostering of opportunities, we can build a stronger
+          future for ourselves and those who come afterward.
         </Body>
-        <Body>Day job? Software Engineer at Red Ventures.</Body>
-        <AvatarImg src={Avatar} />
+        <Body>
+          Likewise, the fine arts will always hold a place in my heart, and I
+          volunteer my advisory time on a number of committees in that world.
+        </Body>
+        <Body>Day job? Senior Software Engineer @ Procore.</Body>
+        <AvatarImg src={Avatar} alt="Portrait of Chance Eakin" />
       </TextContainer>
     </Container>
   </Layout>
